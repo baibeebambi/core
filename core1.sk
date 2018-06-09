@@ -1,5 +1,3 @@
-
-
 variables:
 	{%player%.xp} = 0
 	{%player%.lv} = 0
