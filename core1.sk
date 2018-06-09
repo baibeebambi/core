@@ -59,13 +59,14 @@ on break of coal ore:
     wipe player sidebar
     cancel event
     wipe player sidebar
-    set name of sidebar of player to  "&6&lCRAZEX"
-    set score "&6&lUsername&8:" in sidebar of player to 5
-    set score "&7%player%" in sidebar of player to 4
-    set score "&6&lExperience&8:" in sidebar of player to 3
-    set score "&7%{xp1.%player%}%/30" in sidebar of player to 2
-    set score "&6&lLevel&8:" in sidebar of player to 1
-    set score "&7%{lv1.%player%}%" in sidebar of player to 0
+    set name of sidebar of player to  "&6&lCrazeX"
+    set score "" in sidebar of player to 6
+    set score "&8¬ &7Players&8: &f%number of all players%" in sidebar of player to 5
+    set score "" in sidebar of player to 4
+    set score "&8¬ &7&lExperience&8: &f%{xp1.%player%}%/30" in sidebar of player to 3
+    set score "" in sidebar of player to 2
+    set score "&6&lLevel&8: &f%{lv1.%player%}%" in sidebar of player to 1
+    set score "" in sidebar of player to 0
     add 1 to {xp1.%player%}
     add 1 to {bl1.%player%}
     give 1 coal to player
@@ -84,13 +85,14 @@ on break of iron ore:
     wipe player sidebar
     cancel event
     wipe player sidebar
-    set name of sidebar of player to  "&6&lCRAZEX"
-    set score "&6&lUsername&8:" in sidebar of player to 5
-    set score "&7%player%" in sidebar of player to 4
-    set score "&6&lExperience&8:" in sidebar of player to 3
-    set score "&7%{xp1.%player%}%/30" in sidebar of player to 2
-    set score "&6&lLevel&8:" in sidebar of player to 1
-    set score "&7%{lv1.%player%}%" in sidebar of player to 0
+    set name of sidebar of player to  "&6&lCrazeX"
+    set score "" in sidebar of player to 6
+    set score "&8¬ &7Players&8: &f%number of all players%" in sidebar of player to 5
+    set score "" in sidebar of player to 4
+    set score "&8¬ &7&lExperience&8: &f%{xp1.%player%}%/30" in sidebar of player to 3
+    set score "" in sidebar of player to 2
+    set score "&6&lLevel&8: &f%{lv1.%player%}%" in sidebar of player to 1
+    set score "" in sidebar of player to 0
     add 2 to {xp1.%player%}
     add 1 to {bl1.%player%}
     give 2 coal to player
@@ -107,13 +109,14 @@ on break of diamond ore:
     add 1 to {st}
     wipe player sidebar
     wipe player sidebar
-    set name of sidebar of player to  "&6&lCRAZEX"
-    set score "&6&lUsername&8:" in sidebar of player to 5
-    set score "&7%player%" in sidebar of player to 4
-    set score "&6&lExperience&8:" in sidebar of player to 3
-    set score "&7%{xp1.%player%}%/30" in sidebar of player to 2
-    set score "&6&lLevel&8:" in sidebar of player to 1
-    set score "&7%{lv1.%player%}%" in sidebar of player to 0
+    set name of sidebar of player to  "&6&lCrazeX"
+    set score "" in sidebar of player to 6
+    set score "&8¬ &7Players&8: &f%number of all players%" in sidebar of player to 5
+    set score "" in sidebar of player to 4
+    set score "&8¬ &7&lExperience&8: &f%{xp1.%player%}%/30" in sidebar of player to 3
+    set score "" in sidebar of player to 2
+    set score "&6&lLevel&8: &f%{lv1.%player%}%" in sidebar of player to 1
+    set score "" in sidebar of player to 0
     add 4 to {xp1.%player%}
     add 1 to {bl1.%player%}
     give 4 coal to player
@@ -130,13 +133,14 @@ on break of lapis ore:
     add 1 to {st}
     wipe player sidebar
     wipe player sidebar
-    set name of sidebar of player to  "&6&lCRAZEX"
-    set score "&6&lUsername&8:" in sidebar of player to 5
-    set score "&7%player%" in sidebar of player to 4
-    set score "&6&lExperience&8:" in sidebar of player to 3
-    set score "&7%{xp1.%player%}%/30" in sidebar of player to 2
-    set score "&6&lLevel&8:" in sidebar of player to 1
-    set score "&7%{lv1.%player%}%" in sidebar of player to 0
+    set name of sidebar of player to  "&6&lCrazeX"
+    set score "" in sidebar of player to 6
+    set score "&8¬ &7Players&8: &f%number of all players%" in sidebar of player to 5
+    set score "" in sidebar of player to 4
+    set score "&8¬ &7&lExperience&8: &f%{xp1.%player%}%/30" in sidebar of player to 3
+    set score "" in sidebar of player to 2
+    set score "&6&lLevel&8: &f%{lv1.%player%}%" in sidebar of player to 1
+    set score "" in sidebar of player to 0
     add 5 to {xp1.%player%}
     add 1 to {bl1.%player%}
     give 5 coal to player
