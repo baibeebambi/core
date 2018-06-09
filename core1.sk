@@ -1,3 +1,7 @@
+on first join:
+    add 1 to {logins}
+    broadcast "&8[&a+&8] &7%player% has joined for the first time! &8[&a##%{logins}%&8]"
+
 variables:
 	{%player%.xp} = 0
 	{%player%.lv} = 0
@@ -7,17 +11,35 @@ every 10 seconds:
         heal the loop-player
         feed the loop-player
 
+on chat:
+    cancel event
+    broadcast "&8[&a%{lv1.%player%}%&8] &r%colored player's prefix%&7%player% &r%colored player's suffix%&8» &f%message%" 
+
 on command "minecraft:me":   
     cancel event
     send "&cInvalid Permission!"
 
 on first join:
-  set {xp1.%player%} to 0
-  set {lv1.%player%} to 0
-  set {bl1.%player%} to 0
-  set {w.%player%} to 0
+    set {xp1.%player%} to 0
+    set {lv1.%player%} to 0
+    set {bl1.%player%} to 0
+    set {w.%player%} to 0
+    set {b.%player%} to 0
+    set gamemode of player to Adventure
+
+command /logins:
+    trigger:
+        send "&aWe have %{logins}% logins currently!"
+
+
+command /pop:
+    aliases: /bubble, /bubbles
+    trigger:
+        add 1 to {b.%player%}
+        send "&aYou've popped &c%{b.%player%}% &abubbles!"
 
 on join:
+  set gamemode of player to Adventure
   set {w.%player%} to 0
   wipe player sidebar
   set name of sidebar of player to  "&6&lCRAZEX"
@@ -31,7 +53,7 @@ on join:
 on break of coal ore:
     if {xp1.%player%} >= 30:
         add 1 to {lv1.%player%}
-        set {xp1.%player%} to 0
+        remove 30 from {xp1.%player%}
         send "&6[CrazeX] &8» &7You leveled up to &e%{lv1.%player%}%&7!"
     add 1 to {st}
     wipe player sidebar
@@ -55,7 +77,7 @@ on break of coal ore:
 on break of iron ore:
     if {xp1.%player%} >= 30:
         add 1 to {lv1.%player%}
-        set {xp1.%player%} to 0
+        remove 30 from {xp1.%player%}
         send "&6[CrazeX] &8» &7You leveled up to &e%{lv1.%player%}%&7!"
     cancel event
     add 1 to {st}
@@ -80,7 +102,7 @@ on break of diamond ore:
     cancel event
     if {xp1.%player%} >= 30:
         add 1 to {lv1.%player%}
-        set {xp1.%player%} to 0
+        remove 30 from {xp1.%player%}
         send "&6[CrazeX] &8» &7You leveled up to &e%{lv1.%player%}%&7!"
     add 1 to {st}
     wipe player sidebar
@@ -95,9 +117,32 @@ on break of diamond ore:
     add 4 to {xp1.%player%}
     add 1 to {bl1.%player%}
     give 4 coal to player
-    set block to white wool
+    set block to light blue wool
     wait 120 seconds
     set block to diamond ore
+
+on break of lapis ore:
+    cancel event
+    if {xp1.%player%} >= 30:
+        add 1 to {lv1.%player%}
+        remove 30 from {xp1.%player%}
+        send "&6[CrazeX] &8» &7You leveled up to &e%{lv1.%player%}%&7!"
+    add 1 to {st}
+    wipe player sidebar
+    wipe player sidebar
+    set name of sidebar of player to  "&6&lCRAZEX"
+    set score "&6&lUsername&8:" in sidebar of player to 5
+    set score "&7%player%" in sidebar of player to 4
+    set score "&6&lExperience&8:" in sidebar of player to 3
+    set score "&7%{xp1.%player%}%/30" in sidebar of player to 2
+    set score "&6&lLevel&8:" in sidebar of player to 1
+    set score "&7%{lv1.%player%}%" in sidebar of player to 0
+    add 5 to {xp1.%player%}
+    add 1 to {bl1.%player%}
+    give 5 coal to player
+    set block to blue wool
+    wait 180 seconds
+    set block to lapis ore
 
 command /warn [<player>]:
     usage: &c/warn <player>
@@ -124,6 +169,7 @@ command /stats [<offline player>]:
             send "&e&lLevel: &7%{lv1.%arg-1%}%"
             send "&e&lExperience: &7%{xp1.%arg-1%}%"
             send "&e&lBlocks Broken: &7%{bl1.%arg-1%}%"
+            send "&eBubbles popped: &7%{b.%arg-1%}%"
             send "&eServer Blocks Broken: &7%{st}%"
             send ""
         if arg-1 is not set:
@@ -134,5 +180,6 @@ command /stats [<offline player>]:
             send "&eLevel: &7%{lv1.%player%}%"
             send "&eExperience: &7%{xp1.%player%}%/30"
             send "&eBlocks Broken: &7%{bl1.%player%}%"
+            send "&eBubbles popped: &7%{b.%player%}%"
             send "&eServer Blocks Broken: &7%{st}%"
             send ""
